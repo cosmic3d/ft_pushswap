@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:32:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/09 19:04:19 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:17:02 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,30 @@ int	check_int(char **str)
 			return (0);
 		if (ft_strlen(str[i]) - sign == 10)
 		{
-
+			if (!check_limits_when_10(str[i], sign))
+				return (0);
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	check_limits_when_10(char *str, int sign)
+{
+	if (sign)
+	{
+		if (str[0] == '+')
+		{
+			if (ft_strncmp(str, "+2147483647", 11) > 0)
+				return (0);
+		}
+		else
+		{
+			if (ft_strncmp(str, "-2147483648", 11) > 0)
+				return (0);
+		}
+	}
+	if (ft_strncmp(str, "2147483647", 10) > 0)
+		return (0);
 	return (1);
 }
