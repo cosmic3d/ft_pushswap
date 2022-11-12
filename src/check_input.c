@@ -6,13 +6,13 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:32:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/09 20:17:02 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/11 20:31:14 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
 
-int	check_input(char **str)
+int	check_input(char **str, int argc)
 {
 	if (!check_digits(str))
 	{
@@ -22,6 +22,11 @@ int	check_input(char **str)
 	if (!check_int(str))
 	{
 		ft_printf("Nums lower than %d or bigger than %d.\n", INT_MIN, INT_MAX);
+		return (0);
+	}
+	if (!check_dups(str, argc))
+	{
+		ft_printf("Some numbers are duplicated.\n");
 		return (0);
 	}
 	return (1);
@@ -93,5 +98,33 @@ int	check_limits_when_10(char *str, int sign)
 	}
 	if (ft_strncmp(str, "2147483647", 10) > 0)
 		return (0);
+	return (1);
+}
+
+int	check_dups(char	**str, int argc)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (++i < argc - 1)
+	{
+		j = 0;
+		while (++j < argc - 1)
+		{
+			if (i == j)
+				j++;
+			if (ft_strlen(str[i]) >= ft_strlen(str[j]))
+			{
+				if (!ft_strncmp(str[i], str[j], ft_strlen(str[i])))
+					return (0);
+			}
+			else
+			{
+				if (!ft_strncmp(str[j], str[i], ft_strlen(str[j])))
+					return (0);
+			}
+		}
+	}
 	return (1);
 }
