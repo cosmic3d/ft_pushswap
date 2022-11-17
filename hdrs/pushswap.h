@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/12 19:08:48 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:35:03 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include <unistd.h>
 # include <limits.h>
 
-int	check_input(char **str, int argc);
-int	check_digits(char**str);
-int	check_int(char **s);
-int	check_limits_when_10(char *str, int sign);
-int	check_dups(char	**s, int argc);
+int		check_input(char **str, int argc);
+int		check_digits(char**str);
+int		check_int(char **s);
+int		check_limits_when_10(char *str, int sign);
+int		check_dups(char	**s, int argc);
+void	ft_init_a(t_stack *a, int len, char **s);
+t_node	*ft_newnode(int nbr);
 
 typedef struct s_node
 {

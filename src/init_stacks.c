@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/17 12:51:38 by jenavarr         ###   ########.fr       */
+/*   Created: 2022/11/17 14:12:54 by jenavarr          #+#    #+#             */
+/*   Updated: 2022/11/17 14:41:56 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
 
-int	main(int argc, char **argv)
+void	ft_init_a(t_stack *a, int len, char **s)
 {
-	t_stack	a;
-	t_stack	b;
+	t_node	*node;
+	t_node	*tmp;
 
-	if (argc < 2)
+	a->first = NULL;
+	a->last = NULL;
+	a->len = -1;
+	while (++a->len < len - 1)
 	{
-		ft_printf("You need to give some input. Finishing program.\n");
-		return (0);
+		node = ft_newnode(ft_atoi(s[a->len + 1]));
+		
 	}
-	if (!check_input(argv, argc))
-		return (0);
-	
+}
+
+t_node	*ft_newnode(int nbr)
+{
+	t_node	*node;
+
+	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->val = nbr;
+	node->index = 0;
+	node->back = NULL;
+	node->next = NULL;
+	return (node);
 }
