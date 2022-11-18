@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:12:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/17 14:41:56 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/18 21:29:23 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,30 @@ void	ft_init_a(t_stack *a, int len, char **s)
 	a->len = -1;
 	while (++a->len < len - 1)
 	{
-		node = ft_newnode(ft_atoi(s[a->len + 1]));
-		
+		node = ft_newnode(ft_atoi(s[a->len + 1]), a->len);
+		if (!a->first)
+		{
+			a->first = node;
+			a->last = node;
+		}
+		else
+		{
+			tmp = a->last;
+			a->last = node;
+			tmp->next = a->last;
+			a->last->back = tmp;
+		}
 	}
 }
 
-t_node	*ft_newnode(int nbr)
+void	ft_init_b(t_stack *b)
+{
+	b->first = NULL;
+	b->last = NULL;
+	b->len = 0;
+}
+
+t_node	*ft_newnode(int nbr, int ind)
 {
 	t_node	*node;
 
@@ -35,7 +53,7 @@ t_node	*ft_newnode(int nbr)
 	if (!node)
 		return (NULL);
 	node->val = nbr;
-	node->index = 0;
+	node->index = ind;
 	node->back = NULL;
 	node->next = NULL;
 	return (node);
