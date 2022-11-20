@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/20 22:19:54 by jenavarr         ###   ########.fr       */
+/*   Created: 2022/11/20 20:26:47 by jenavarr          #+#    #+#             */
+/*   Updated: 2022/11/20 22:19:56 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
 
-void	swap(t_stack *stack)
+void	reset_stack(t_stack *stack)
 {
-	t_node	*tmp;
-
-	if (stack->len < 2)
-		return ;
-	tmp = stack->first;
-	if (stack->len == 2)
-		stack->last = tmp;
-	stack->first = tmp->next;
-	stack->first->back = NULL;
-	tmp->next = stack->first->next;
-	stack->first->next = tmp;
-	tmp->back = stack->first;
+	stack->first = NULL;
+	stack->last = NULL;
+	stack->len = 0;
 	return ;
 }
 
-void	swapswap(t_stack *a, t_stack *b)
+void	reset_node(t_node *node)
 {
-	swap(a);
-	swap(b);
+	node->next = NULL;
+	node->back = NULL;
 	return ;
 }

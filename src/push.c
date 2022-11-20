@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/20 22:19:54 by jenavarr         ###   ########.fr       */
+/*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
+/*   Updated: 2022/11/20 22:19:52 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
 
-void	swap(t_stack *stack)
+void	push(t_stack *dest, t_stack *ori)
 {
-	t_node	*tmp;
-
-	if (stack->len < 2)
+	t_node	*tmp_dest;
+	t_node	*tmp_ori;
+	
+	if (!ori->len)
 		return ;
-	tmp = stack->first;
-	if (stack->len == 2)
-		stack->last = tmp;
-	stack->first = tmp->next;
-	stack->first->back = NULL;
-	tmp->next = stack->first->next;
-	stack->first->next = tmp;
-	tmp->back = stack->first;
-	return ;
+	dest->len++;
+	ori->len--;
+	
+	if (!dest->len)
+		first_last(tmp_ori, dest);
 }
 
-void	swapswap(t_stack *a, t_stack *b)
+void	first_last(t_node *node, t_stack *stack)
 {
-	swap(a);
-	swap(b);
-	return ;
+	stack->first = node;
+	stack->last = node;
+	node->back = NULL;
+	node->next = NULL;
 }

@@ -39,7 +39,7 @@ LIBS_HDRS	+= $(INC_DIR)pushswap.h
 INCLUDE		= -I $(LIBS_HDRS)
 
 # -=-=-=-=-	SOURCES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-SRCS		+= pushswap.c check_input.c init_stacks.c swap.c
+SRCS		+= pushswap.c check_input.c init_stacks.c swap.c push.c utils.c
 
 # -=-=-=-=-	OBJECTS/DEPENDENCIES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 

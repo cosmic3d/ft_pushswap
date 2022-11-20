@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/20 17:53:58 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:19:40 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void	ft_init_b(t_stack *b);
 t_node	*ft_newnode(int nbr, int ind);
 void	swap(t_stack *stack);
 void	swapswap(t_stack *a, t_stack *b);
+void	push(t_stack *dest, t_stack *ori);
+void	reset_stack(t_stack *stack);
+void	reset_node(t_node *node);
 
 #endif
