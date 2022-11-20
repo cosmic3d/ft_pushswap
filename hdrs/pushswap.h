@@ -46,5 +46,6 @@ void	swapswap(t_stack *a, t_stack *b);
 void	push(t_stack *dest, t_stack *ori);
 void	reset_stack(t_stack *stack);
 void	reset_node(t_node *node);
+void    first_last(t_node *node, t_stack *stack);
 
 #endif

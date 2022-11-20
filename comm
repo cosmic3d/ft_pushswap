@@ -1,0 +1,1 @@
+gcc    src/* lib/ft_printf/src/* lib/ft_libft/*.c
