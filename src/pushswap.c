@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/20 22:19:53 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:36:46 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ int	main(int argc, char **argv)
 	if (!check_input(argv, argc))
 		return (0);
 	ft_init_a(&a, argc, argv);
-	ft_init_b(&b);
+	void_stack(&b);
 	debug_stack(&a);
-	swap(&a);
+	debug_stack(&b);
+	//swap(&a);
+	push(&b, &a);
 	debug_stack(&a);
+	debug_stack(&b);
 	return (0);
 }

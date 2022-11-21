@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/20 22:19:40 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:37:04 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,11 @@ int		check_int(char **s);
 int		check_limits_when_10(char *str, int sign);
 int		check_dups(char	**s, int argc);
 void	ft_init_a(t_stack *a, int len, char **s);
-void	ft_init_b(t_stack *b);
 t_node	*ft_newnode(int nbr, int ind);
 void	swap(t_stack *stack);
 void	swapswap(t_stack *a, t_stack *b);
 void	push(t_stack *dest, t_stack *ori);
-void	reset_stack(t_stack *stack);
+void	void_stack(t_stack *stack);
 void	reset_node(t_node *node);
 void    first_last(t_node *node, t_stack *stack);
 

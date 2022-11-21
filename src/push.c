@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/20 22:19:52 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:36:54 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	push(t_stack *dest, t_stack *ori)
 	
 	if (!ori->len)
 		return ;
+	tmp_ori = ori->first;
+	ori->first = ori->first->next;
+	ori->first->back = NULL;
+	if (!ori->first)
+		void_stack(ori);
+	tmp_dest = dest->first;
+	dest->first = tmp_ori;
+	dest->first->next = tmp_dest;
+	tmp_dest->back = dest->first;
 	dest->len++;
 	ori->len--;
-	
-	if (!dest->len)
-		first_last(tmp_ori, dest);
-}
-
-void	first_last(t_node *node, t_stack *stack)
-{
-	stack->first = node;
-	stack->last = node;
-	node->back = NULL;
-	node->next = NULL;
+	if (dest->len == 1)
+		first_last(dest->first, dest);
 }
