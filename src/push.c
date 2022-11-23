@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/21 14:36:54 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:10:04 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,21 @@ void	push(t_stack *dest, t_stack *ori)
 	
 	if (!ori->len)
 		return ;
+	write(1, "Aqui llega\n", 11);
 	tmp_ori = ori->first;
 	ori->first = ori->first->next;
-	ori->first->back = NULL;
+	write(1, "Aqui llega\n", 11);
+	if (ori->first)
+		ori->first->back = NULL;
+	//write(1, "Aqui llega\n", 11);
 	if (!ori->first)
 		void_stack(ori);
 	tmp_dest = dest->first;
 	dest->first = tmp_ori;
+	//write(1, "Aqui llega\n", 11);
 	dest->first->next = tmp_dest;
-	tmp_dest->back = dest->first;
+	if (dest->first->next)
+		dest->first->next->back = dest->first;
 	dest->len++;
 	ori->len--;
 	if (dest->len == 1)

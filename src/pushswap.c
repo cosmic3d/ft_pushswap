@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/21 14:36:46 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:09:55 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	main(int argc, char **argv)
 	debug_stack(&a);
 	debug_stack(&b);
 	//swap(&a);
+	push(&b, &a);
+	push(&b, &a);
 	push(&b, &a);
 	debug_stack(&a);
 	debug_stack(&b);
