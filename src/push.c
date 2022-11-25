@@ -17,12 +17,11 @@ void	push(t_stack *dest, t_stack *ori)
 	t_node	*tmp_dest;
 	t_node	*tmp_ori;
 	
-	if (!ori->len)
+	if (ori->len <= 0)
 		return ;
-	write(1, "Aqui llega\n", 11);
 	tmp_ori = ori->first;
-	ori->first = ori->first->next;
-	write(1, "Aqui llega\n", 11);
+	if (ori->first)
+		ori->first = ori->first->next;
 	if (ori->first)
 		ori->first->back = NULL;
 	//write(1, "Aqui llega\n", 11);

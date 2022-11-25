@@ -20,6 +20,7 @@ void	ft_init_a(t_stack *a, int len, char **s)
 	a->first = NULL;
 	a->last = NULL;
 	a->len = -1;
+	a->id = 'a';
 	while (++a->len < len - 1)
 	{
 		node = ft_newnode(ft_atoi(s[a->len + 1]), a->len);

@@ -31,6 +31,7 @@ typedef struct s_stack
 	int		len;
 	t_node	*first;
 	t_node	*last;
+	char	id;
 }t_stack;
 
 int		check_input(char **str, int argc);

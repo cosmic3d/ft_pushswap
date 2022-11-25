@@ -17,6 +17,7 @@ void	debug_stack(t_stack *stack)
 	t_node	*tmp;
 	
 	tmp = stack->first;
+	ft_printf("Printing stack %c:\n\n", stack->id);
 	while (tmp != NULL)
 	{
 		ft_printf("Value of %d is: %d\n", tmp->index, tmp->val);
@@ -40,11 +41,14 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init_a(&a, argc, argv);
 	void_stack(&b);
+	b.id = 'b';
 	debug_stack(&a);
 	debug_stack(&b);
 	//swap(&a);
 	push(&b, &a);
 	push(&b, &a);
+	debug_stack(&a);
+        debug_stack(&b);
 	push(&b, &a);
 	debug_stack(&a);
 	debug_stack(&b);
