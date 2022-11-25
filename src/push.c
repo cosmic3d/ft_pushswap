@@ -20,8 +20,7 @@ void	push(t_stack *dest, t_stack *ori)
 	if (ori->len <= 0)
 		return ;
 	tmp_ori = ori->first;
-	if (ori->first)
-		ori->first = ori->first->next;
+	ori->first = ori->first->next;
 	if (ori->first)
 		ori->first->back = NULL;
 	//write(1, "Aqui llega\n", 11);

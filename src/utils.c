@@ -16,7 +16,6 @@ void	void_stack(t_stack *stack)
 {
 	stack->first = NULL;
 	stack->last = NULL;
-	stack->len = 0;
 	return ;
 }
 

@@ -17,13 +17,14 @@ void	debug_stack(t_stack *stack)
 	t_node	*tmp;
 	
 	tmp = stack->first;
+	ft_printf("\n|----------------------------|\n");
 	ft_printf("Printing stack %c:\n\n", stack->id);
 	while (tmp != NULL)
 	{
 		ft_printf("Value of %d is: %d\n", tmp->index, tmp->val);
 		tmp = tmp->next;
 	}
-	ft_printf("Len of stack a is: %i\n\n", stack->len);
+	ft_printf("Len of stack is: %i\n\n", stack->len);
 	return ;
 }
 
@@ -42,6 +43,7 @@ int	main(int argc, char **argv)
 	ft_init_a(&a, argc, argv);
 	void_stack(&b);
 	b.id = 'b';
+	b.len = 0;
 	debug_stack(&a);
 	debug_stack(&b);
 	//swap(&a);
