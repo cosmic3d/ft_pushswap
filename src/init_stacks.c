@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:12:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/21 14:36:56 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:53:04 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ void	ft_init_a(t_stack *a, int len, char **s)
 			a->last->back = tmp;
 		}
 	}
+}
+
+void	ft_init_b(t_stack *b)
+{
+	b->first = NULL;
+	b->last = NULL;
+	b->id = 'b';
+	b->len = 0;
 }
 
 t_node	*ft_newnode(int nbr, int ind)

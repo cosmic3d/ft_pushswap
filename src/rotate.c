@@ -1,51 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/29 14:31:43 by jenavarr         ###   ########.fr       */
+/*   Created: 2022/11/25 19:03:26 by jenavarr          #+#    #+#             */
+/*   Updated: 2022/11/29 14:31:45 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
 
-void	swap(t_stack *stack)
+void	rotate(t_stack *stack)
 {
-	t_node	*tmp;
+	t_node	*tmp_first;
+	t_node	*tmp_last;
 
 	if (stack->len < 2)
 		return ;
-	tmp = stack->first;
 	if (stack->len == 2)
-		stack->last = tmp;
-	stack->first = tmp->next;
+		return (swap(stack));
+	tmp_first = stack->first;
+	tmp_last = stack->last;
+	stack->last = stack->last->back;
+	stack->last->next = NULL;
+	stack->first = tmp_last;
 	stack->first->back = NULL;
-	tmp->next = stack->first->next;
-	stack->first->next = tmp;
-	tmp->back = stack->first;
+	stack->first->next = tmp_first;
+	stack->first->next->back = stack->first;
 	return ;
 }
 
-void	swap_a(t_stack *a)
+void	rotaterotate(t_stack *a, t_stack *b)
 {
-	swap(a);
-	if (ft_printf("%s", SA) == -1)
-		return (empty_stack(a));
-}
-
-void	swap_b(t_stack *b)
-{
-	swap(b);
-	if (ft_printf("%s", SB) == -1)
-		return (empty_stack(b));
-}
-
-void	swapswap(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
+	rotate(a);
+	rotate(b);
 	return ;
 }
