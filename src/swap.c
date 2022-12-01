@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/11/29 14:31:43 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:17:36 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	swap(t_stack *stack)
 {
 	t_node	*tmp;
 
+	if (!stack)
+		return ;
 	if (stack->len < 2)
 		return ;
 	tmp = stack->first;
@@ -29,23 +31,23 @@ void	swap(t_stack *stack)
 	return ;
 }
 
-void	swap_a(t_stack *a)
+void	swap_a(t_stack *a, t_stack *b)
 {
 	swap(a);
 	if (ft_printf("%s", SA) == -1)
-		return (empty_stack(a));
+		return (ft_error(a, b));
 }
 
-void	swap_b(t_stack *b)
+void	swap_b(t_stack *b, t_stack *a)
 {
 	swap(b);
 	if (ft_printf("%s", SB) == -1)
-		return (empty_stack(b));
+		return (ft_error(a, b));
 }
 
 void	swapswap(t_stack *a, t_stack *b)
 {
-	swap(a);
-	swap(b);
+	swap_a(a, b);
+	swap_b(b, a);
 	return ;
 }
