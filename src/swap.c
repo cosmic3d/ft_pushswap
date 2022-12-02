@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/01 14:17:36 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:53:10 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,23 @@ void	swap_a(t_stack *a, t_stack *b)
 {
 	swap(a);
 	if (ft_printf("%s", SA) == -1)
-		return (ft_error(a, b));
+		ft_error(a, b);
+	return ;
 }
 
 void	swap_b(t_stack *b, t_stack *a)
 {
 	swap(b);
 	if (ft_printf("%s", SB) == -1)
-		return (ft_error(a, b));
+		ft_error(a, b);
+	return ;
 }
 
 void	swapswap(t_stack *a, t_stack *b)
 {
-	swap(a);//Modify for handling better the errors
+	swap(a);
 	swap(b);
-	if (ft_printf("%s", SS) == -1)                                        return (ft_error(a, b));
+	if (ft_printf("%s", SS) == -1)
+		ft_error(a, b);
 	return ;
 }

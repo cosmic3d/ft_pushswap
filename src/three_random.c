@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   three_random.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/02 20:01:46 by jenavarr         ###   ########.fr       */
+/*   Created: 2022/12/02 19:21:05 by jenavarr          #+#    #+#             */
+/*   Updated: 2022/12/02 19:38:22 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
 
-int	main(int argc, char **argv)
+void	three_random(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
+	if (a->len == 2)
+		return (two(a, b));
+}
 
-	if (argc < 3)
-	{
-		ft_printf("You need to give some numbers. Finishing program.\n");
-		return (ft_error(NULL, NULL));
-	}
-	if (!check_input(argv, argc))
-		return (ft_error(NULL, NULL));
-	if (ft_init_a(&a, argc, argv) == -1)
-		return (ft_error(&a, NULL));
-	ft_init_b(&b);
-	if (ft_is_ordered(&a))
-		return (empty_stacks(&a, &b));
-	if (a.len <= 3)
-		return (0);
+void	two(t_stack *a, t_stack *b)
+{
+	if (a->first->val > a->last->val)
+		return (swap_a(a, b));
+	return ;
 }
