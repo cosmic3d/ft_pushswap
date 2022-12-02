@@ -47,7 +47,8 @@ void	swap_b(t_stack *b, t_stack *a)
 
 void	swapswap(t_stack *a, t_stack *b)
 {
-	swap_a(a, b);
-	swap_b(b, a);
+	swap(a);//Modify for handling better the errors
+	swap(b);
+	if (ft_printf("%s", SS) == -1)                                        return (ft_error(a, b));
 	return ;
 }

@@ -12,13 +12,13 @@
 
 #include "../hdrs/pushswap.h"
 
-int	push(t_stack *dest, t_stack *ori)
+void	push(t_stack *dest, t_stack *ori)
 {
 	t_node	*tmp_dest;
 	t_node	*tmp_ori;
 
 	if (!ori->len)
-		return (0);
+		return ;
 	tmp_ori = ori->first;
 	ori->first = ori->first->next;
 	if (ori->first)
@@ -32,5 +32,16 @@ int	push(t_stack *dest, t_stack *ori)
 	ori->len--;
 	if (dest->len == 1)
 		first_last(dest->first, dest);
-	return (1);
+	return ;
+}
+
+void	push_a(t_stack *a, t_stack *b)
+{
+	push(a, b);
+	if (ft_printf("%s", PA) == -1)
+		return (ft_error(a, b));
+	return ;
+}
+
+void    push_b(t_stack *b, t_stack *a)                        {                                                                     push(b, a);                                                   if (ft_printf("%s", PB) == -1)                                        return (ft_error(a, b));                              return ;
 }
