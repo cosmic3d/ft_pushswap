@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:03:26 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/02 18:53:30 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:07:10 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	rotate_a(t_stack *a, t_stack *b)
 	return ;
 }
 
-void	rotate_b(t_stack *b, t_stack *a)
+void	rotate_b(t_stack *a, t_stack *b)
 {
 	rotate(b);
 	if (ft_printf("%s", RB) == -1)

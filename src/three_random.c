@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:21:05 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/05 11:25:46 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:29:38 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,20 @@ void	three_random(t_stack *a, t_stack *b)
 		return (rotate_a(a, b));
 	if (a->first->val > a->last->back->val && a->last->back->val > a->last->val)
 	{
+		write(1, "\nSi\n", 4);
 		swap_a(a, b);
-		return (reverse_rotate_a(a, b));
+		return (rotate_a(a, b));
 	}
+	if (a->last->back > a->last && a->last->back > a->first)
+	{
+		if (a->first < a->last)
+		{
+			swap_a(a, b);
+			return (reverse_rotate_a(a, b));
+		}
+	}
+	if (a->last->val < a->first->val && a->first->val < a->last->back->val)
+		return (rotate_a(a, b));
 }
 
 void	two(t_stack *a, t_stack *b)

@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/05 11:19:27 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:26:29 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	algorithm(t_stack *a, t_stack *b)
 {
 	if (a->len <= 3)
 		return (three_random(a, b));
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -35,5 +36,7 @@ int	main(int argc, char **argv)
 	ft_init_b(&b);
 	if (ft_is_ordered(&a))
 		return (empty_stacks(&a, &b));
+	debug_stack(&a);
 	algorithm(&a, &b);
+	debug_stack(&a);
 }
