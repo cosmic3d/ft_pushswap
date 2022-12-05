@@ -6,11 +6,17 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/02 20:01:46 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:19:27 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/pushswap.h"
+
+void	algorithm(t_stack *a, t_stack *b)
+{
+	if (a->len <= 3)
+		return (three_random(a, b));
+}
 
 int	main(int argc, char **argv)
 {
@@ -29,6 +35,5 @@ int	main(int argc, char **argv)
 	ft_init_b(&b);
 	if (ft_is_ordered(&a))
 		return (empty_stacks(&a, &b));
-	if (a.len <= 3)
-		return (0);
+	algorithm(&a, &b);
 }

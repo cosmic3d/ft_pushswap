@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/02 19:58:56 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:18:40 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	rotate_a(t_stack *a, t_stack *b);
 void	rotate_b(t_stack *b, t_stack *a);
 void	rotaterotate(t_stack *a, t_stack *b);
 void	reverse_rotate(t_stack *stack);
+void	reverse_rotate_a(t_stack *a, t_stack *b);
+void	reverse_rotate_b(t_stack *b, t_stack *a);
 void	rrr(t_stack *a, t_stack *b);
 //|--------------UTILS FUNCS--------------|
 void	empty_stack(t_stack *stack);
@@ -85,6 +87,8 @@ int		ft_error(t_stack *a, t_stack *b);
 int		ft_is_ordered(t_stack *stack);
 //|--------------DEBUGGING FUNCS--------------|
 void	debug_stack(t_stack *stack);
+//|--------------ALGORITHM--------------|
+void	algorithm(t_stack *a, t_stack *b);
 //|--------------THREE RANDOM NUMBERS ALGORITHM--------------|
 void	three_random(t_stack *a, t_stack *b);
 void	two(t_stack *a, t_stack *b);
