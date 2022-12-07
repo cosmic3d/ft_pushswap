@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/05 14:03:45 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:14:07 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@ void	swap(t_stack *stack)
 {
 	t_node	*tmp;
 
-	if (!stack)
+	if (!stack || stack->len < 2)
 		return ;
-	if (stack->len < 2)
-		return ;
-	tmp = stack->first;
+	tmp = stack->first->next;
 	if (stack->len == 2)
 		stack->last = tmp;
-	stack->first = tmp->next;
+	if (stack->first->next->next)
+		stack->first->next->next->back = stack->first;
+	stack->first->next = stack->first->next->next;
+	stack->first->back = tmp;
 	stack->first->back = NULL;
-	tmp->next = stack->first->next;
-	stack->first->next = tmp;
-	tmp->back = stack->first;
+	tmp->next = stack->first;
+	tmp->back = NULL;
+	stack->first = tmp;
 	return ;
 }
 

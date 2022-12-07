@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/05 14:26:29 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:06:58 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int	main(int argc, char **argv)
 	if (ft_is_ordered(&a))
 		return (empty_stacks(&a, &b));
 	debug_stack(&a);
-	algorithm(&a, &b);
+	swap_a(&a, &b);
 	debug_stack(&a);
+	//rotate_a(&a, &b);
+	//algorithm(&a, &b);
+	//debug_stack(&a);
 }

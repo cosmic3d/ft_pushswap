@@ -18,6 +18,7 @@ WHITE		:= \033[0;97m
 
 # -=-=-=-=-	CMNDS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 CC			= gcc
+SANS		= -fsanitize=address -g
 CFLAGS		= -Wall -Werror -Wextra
 AR			= ar -rcs
 RM			= rm -f
