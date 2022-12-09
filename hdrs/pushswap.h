@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/05 14:03:08 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/09 23:13:35 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,15 @@ void	rrr(t_stack *a, t_stack *b);
 //|--------------UTILS FUNCS--------------|
 void	empty_stack(t_stack *stack);
 int		empty_stacks(t_stack *a, t_stack *b);
-void	first_last(t_node *node, t_stack *stack);
+void	first_last(t_node *node_a, t_stack *a, t_node *node_b, t_stack *b);
 int		ft_error(t_stack *a, t_stack *b);
 int		ft_is_ordered(t_stack *stack);
 //|--------------DEBUGGING FUNCS--------------|
 void	debug_stack(t_stack *stack);
 //|--------------ALGORITHM--------------|
 void	algorithm(t_stack *a, t_stack *b);
-//|--------------THREE RANDOM NUMBERS ALGORITHM--------------|
+//|--------------FIVE RANDOM NUMBERS ALGORITHM--------------|
 void	three_random(t_stack *a, t_stack *b);
-void	two(t_stack *a, t_stack *b);
+void	five_random(t_stack *a, t_stack *b);
 
 #endif

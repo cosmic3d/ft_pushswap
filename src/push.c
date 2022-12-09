@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/05 14:05:13 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/09 23:11:55 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ void	push(t_stack *dest, t_stack *ori)
 		dest->first->next->back = dest->first;
 	dest->len++;
 	ori->len--;
-	if (dest->len == 1)
-		first_last(dest->first, dest);
+	first_last(dest->first, dest, ori->first, ori);
 	return ;
 }
 
