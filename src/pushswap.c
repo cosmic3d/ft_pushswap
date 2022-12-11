@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/09 23:12:04 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:40:02 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(int argc, char **argv)
 	if (ft_is_ordered(&a))
 		return (empty_stacks(&a, &b));
 	debug_stack(&a);
-	algorithm(&a, &b);
+	ft_printf("The smaller one is: %d\n", check_smaller(&a, -1));
+	ft_printf("The second smaller one is: %d\n", check_smaller(&a, check_smaller(&a, -1)));
+	reverse_rotate_a(&a, &b);
 	debug_stack(&a);
 }

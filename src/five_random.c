@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:21:05 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/09 23:13:00 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:50:50 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,20 @@ void	five_random(t_stack *a, t_stack *b)
 		push_b(a, b);
 	push_b(a, b);
 	three_random(a, b);
-	
 }
 
-//Crear función para obtener el índice de los dos números más pequeños
-//Crear función para encontrar la ruta con menos movimientos según su índice para pushearlos
+int	check_smaller(t_stack *stack, int exclude)
+{
+	t_node	*smaller;
+	t_node	*tmp;
+
+	tmp = stack->first;
+	smaller = stack->first;
+	while (tmp->next)
+	{
+		if (tmp->next->val < smaller->val && tmp->next->index != exclude)
+			smaller = tmp->next;
+		tmp = tmp->next;
+	}
+	return (smaller->index);
+}

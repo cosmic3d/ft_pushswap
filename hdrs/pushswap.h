@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/09 23:13:35 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/11 15:29:02 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void	algorithm(t_stack *a, t_stack *b);
 //|--------------FIVE RANDOM NUMBERS ALGORITHM--------------|
 void	three_random(t_stack *a, t_stack *b);
 void	five_random(t_stack *a, t_stack *b);
+int		check_smaller(t_stack *stack, int exclude);
 
 #endif
