@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/16 20:50:35 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/18 19:06:33 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,15 @@ void	algorithm(t_stack *a, t_stack *b);
 //|--------------FIVE RANDOM NUMBERS ALGORITHM--------------|
 void	three_random(t_stack *a, t_stack *b);
 void	five_random(t_stack *a, t_stack *b);
+void	how_push(t_stack *a, t_stack *b, int node);
 //|--------------LOCATE NODES--------------|
 int		check_smaller(t_stack *stack, int exclude);
-int		check_bigger(t_stack *stack, int exclude);
+int		check_bigger(t_stack *stack);
 //|--------------SIMULATION FUNCS--------------|
 int		how_many_moves(int index, int len);
 int		both_moves(int closer1, int closer2, int len);
 void	which_pair(t_stack *a);
+int		closer_1(int one, int two, int len, int inverted);
+//|--------------MATH FUNCS--------------|
+int		ft_abs(int num);
 #endif
