@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/18 20:53:12 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/18 22:48:07 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	
+
 	if (argc < 3)
 	{
 		ft_printf("You need to give some numbers. Finishing program.\n");

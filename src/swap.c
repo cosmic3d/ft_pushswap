@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/09 23:12:15 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/18 22:34:56 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,11 @@ void	swapswap(t_stack *a, t_stack *b)
 	if (ft_printf("%s", SS) == -1)
 		ft_error(a, b);
 	return ;
+}
+
+void	choose_swap(t_stack *a, t_stack *b)
+{
+	if (b->first->val < b->first->next->val)
+		return (swapswap(a, b));
+	return (swap_a(a, b));
 }

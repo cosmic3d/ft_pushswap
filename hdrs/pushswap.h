@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/18 19:06:33 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/18 22:32:54 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	swap(t_stack *stack);
 void	swap_a(t_stack *a, t_stack *b);
 void	swap_b(t_stack *a, t_stack *b);
 void	swapswap(t_stack *a, t_stack *b);
+void	choose_swap(t_stack *a, t_stack *b);
 void	push(t_stack *dest, t_stack *ori);
 void	push_a(t_stack *a, t_stack *b);
 void	push_b(t_stack *a, t_stack *b);
@@ -87,12 +88,14 @@ int		ft_error(t_stack *a, t_stack *b);
 int		ft_is_ordered(t_stack *stack);
 //|--------------DEBUGGING FUNCS--------------|
 void	debug_stack(t_stack *stack);
+void	debug_simulation(t_stack *a);
 //|--------------ALGORITHM--------------|
 void	algorithm(t_stack *a, t_stack *b);
 //|--------------FIVE RANDOM NUMBERS ALGORITHM--------------|
+void	choose_pushes(t_stack *a, t_stack *b, int s1, int b1);
 void	three_random(t_stack *a, t_stack *b);
 void	five_random(t_stack *a, t_stack *b);
-void	how_push(t_stack *a, t_stack *b, int node);
+void	how_push(t_stack *a, t_stack *b, int node, int brother);
 //|--------------LOCATE NODES--------------|
 int		check_smaller(t_stack *stack, int exclude);
 int		check_bigger(t_stack *stack);
