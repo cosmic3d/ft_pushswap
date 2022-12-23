@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/18 20:54:00 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:55:32 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,24 @@ void	push_b(t_stack *a, t_stack *b)
 	if (ft_printf("%s", PB) == -1)
 		ft_error(a, b);
 	return ;
+}
+
+void	how_push(t_stack *a, t_stack *b, int node, int brother)
+{
+	if (!node)
+		return (push_b(a, b));
+	if (node == 1 && a->len - 1 == brother)
+	{
+		swap_a(a, b);
+		return (push_b(a, b));
+	}
+	if (node <= a->len / 2)
+	{
+		while (a->first->index != node)
+			rotate_a(a, b);
+		return (push_b(a, b));
+	}
+	while (a->first->index != node)
+		reverse_rotate_a(a, b);
+	return (push_b(a, b));
 }

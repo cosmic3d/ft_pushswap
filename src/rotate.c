@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:03:26 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/09 23:12:08 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:54:35 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ void	rotate(t_stack *stack)
 		return (swap(stack));
 	tmp_first = stack->first;
 	tmp_last = stack->last;
-	stack->last = stack->last->back;
-	stack->last->next = NULL;
-	stack->first = tmp_last;
+	stack->last->next = stack->first;
+	stack->first = stack->first->next;
 	stack->first->back = NULL;
-	stack->first->next = tmp_first;
-	stack->first->next->back = stack->first;
+	stack->last = tmp_first;
+	stack->last->next = NULL;
+	stack->last->back = tmp_last;
+	tmp_last->next = stack->last;
 	return ;
 }
 

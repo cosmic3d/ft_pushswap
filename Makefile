@@ -40,7 +40,10 @@ LIBS_HDRS	+= $(INC_DIR)pushswap.h
 INCLUDE		= -I $(LIBS_HDRS)
 
 # -=-=-=-=-	SOURCES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-SRCS		+= pushswap.c check_input.c init_stacks.c swap.c push.c utils.c rotate.c reverse_rotate.c debug.c five_random.c simulation.c locate_nodes.c math.c
+SRCS		+= pushswap.c check_input.c init_stacks.c \
+swap.c push.c utils.c rotate.c reverse_rotate.c debug.c \
+five_random.c one_hundred_random.c simulation.c \
+locate_nodes.c math.c cases.c
 
 # -=-=-=-=-	OBJECTS/DEPENDENCIES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 

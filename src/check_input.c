@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:32:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/02 19:37:54 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:20:45 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,8 @@
 
 int	check_input(char **str, int argc)
 {
-	if (!check_digits(str))
-	{
-		ft_printf("Your input contains some symbols which are not digits.\n");
+	if (!check_digits(str) || !check_int(str) || !check_dups(str, argc))
 		return (0);
-	}
-	if (!check_int(str))
-	{
-		ft_printf("Some numbers are invalid.\n");
-		return (0);
-	}
-	if (!check_dups(str, argc))
-	{
-		ft_printf("Some numbers are duplicated.\n");
-		return (0);
-	}
 	return (1);
 }
 

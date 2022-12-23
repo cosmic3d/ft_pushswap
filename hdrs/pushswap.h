@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/18 22:32:54 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/23 20:50:43 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	choose_swap(t_stack *a, t_stack *b);
 void	push(t_stack *dest, t_stack *ori);
 void	push_a(t_stack *a, t_stack *b);
 void	push_b(t_stack *a, t_stack *b);
+void	how_push(t_stack *a, t_stack *b, int node, int brother);
 void	rotate(t_stack *stack);
 void	rotate_a(t_stack *a, t_stack *b);
 void	rotate_b(t_stack *a, t_stack *b);
@@ -89,21 +90,28 @@ int		ft_is_ordered(t_stack *stack);
 //|--------------DEBUGGING FUNCS--------------|
 void	debug_stack(t_stack *stack);
 void	debug_simulation(t_stack *a);
+void	debug_node(t_node *n);
 //|--------------ALGORITHM--------------|
 void	algorithm(t_stack *a, t_stack *b);
+//|--------------LOCATE NODES--------------|
+t_node	*get_node(t_stack *s, int index);
+int		smaller_1(t_stack *stack, int exclude);
+int		bigger_1(t_stack *stack);
+int		closer_1(int one, int two, int len, int inverted);
+//|--------------SIMULATION FUNCS--------------|
+int		how_many_moves(int index, int len);
+int		both_moves(int closer1, int closer2, int len);
+void	reindex(t_stack *s);
+//|--------------CASES FUNCS--------------|
+int		few_swap(t_stack *a, t_stack *b);
+int		few_rotate(t_stack *a, t_stack *b, t_node *smaller);
+int		do_rotate(t_stack *a, t_stack *b, int index);
+//|--------------MATH FUNCS--------------|
+int		ft_abs(int num);
 //|--------------FIVE RANDOM NUMBERS ALGORITHM--------------|
 void	choose_pushes(t_stack *a, t_stack *b, int s1, int b1);
 void	three_random(t_stack *a, t_stack *b);
 void	five_random(t_stack *a, t_stack *b);
-void	how_push(t_stack *a, t_stack *b, int node, int brother);
-//|--------------LOCATE NODES--------------|
-int		check_smaller(t_stack *stack, int exclude);
-int		check_bigger(t_stack *stack);
-//|--------------SIMULATION FUNCS--------------|
-int		how_many_moves(int index, int len);
-int		both_moves(int closer1, int closer2, int len);
-void	which_pair(t_stack *a);
-int		closer_1(int one, int two, int len, int inverted);
-//|--------------MATH FUNCS--------------|
-int		ft_abs(int num);
+//|--------------ONE HUNDRED RANDOM NUMBERS ALGORITHM--------------|
+void	one_hundred_random(t_stack *a, t_stack *b);
 #endif
