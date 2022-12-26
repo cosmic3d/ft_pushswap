@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 15:10:17 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 19:08:32 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,17 @@ void	swap(t_stack *stack)
 	return ;
 }
 
-void	swap_a(t_stack *a, t_stack *b)
+void	swap_s(t_stack *dest, t_stack *ori)
 {
-	swap(a);
-	if (ft_printf("%s", SA) == -1)
-		ft_error(a, b);
-	return ;
-}
-
-void	swap_b(t_stack *a, t_stack *b)
-{
-	swap(b);
+	swap(dest);
+	if (dest->id == 'a')
+	{
+		if (ft_printf("%s", SA) == -1)
+			ft_error(dest, ori);
+		return ;
+	}
 	if (ft_printf("%s", SB) == -1)
-		ft_error(a, b);
+		ft_error(dest, ori);
 	return ;
 }
 

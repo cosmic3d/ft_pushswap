@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 20:50:33 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:55:37 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	algorithm(t_stack *a, t_stack *b)
 	else if (a->len <= 5)
 		return (five_random(a, b));
 	else if (a->len <= 100)
-		return (one_hundred_random(a, b));
+		return (one_hundred_random(a, b, 20));
 	return ;
 }
 

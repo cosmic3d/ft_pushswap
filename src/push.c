@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 19:55:32 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 19:03:50 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,38 +34,36 @@ void	push(t_stack *dest, t_stack *ori)
 	return ;
 }
 
-void	push_a(t_stack *a, t_stack *b)
+void	push_s(t_stack *dest, t_stack *ori)
 {
-	push(a, b);
-	if (ft_printf("%s", PA) == -1)
-		ft_error(a, b);
-	return ;
-}
-
-void	push_b(t_stack *a, t_stack *b)
-{
-	push(b, a);
+	push(dest, ori);
+	if (dest->id == 'a')
+	{
+		if (ft_printf("%s", PA) == -1)
+			ft_error(dest, ori);
+		return ;
+	}
 	if (ft_printf("%s", PB) == -1)
-		ft_error(a, b);
+		ft_error(dest, ori);
 	return ;
 }
 
-void	how_push(t_stack *a, t_stack *b, int node, int brother)
+void	how_push(t_stack *dest, t_stack *ori, int node, int brother)
 {
 	if (!node)
-		return (push_b(a, b));
-	if (node == 1 && a->len - 1 == brother)
+		return (push_s(dest, ori));
+	if (node == 1 && dest->len - 1 == brother)
 	{
-		swap_a(a, b);
-		return (push_b(a, b));
+		swap_a(dest, ori);
+		return (push_s(dest, ori));
 	}
-	if (node <= a->len / 2)
+	if (node <= dest->len / 2)
 	{
-		while (a->first->index != node)
-			rotate_a(a, b);
-		return (push_b(a, b));
+		while (dest->first->index != node)
+			rotate_s(dest, ori);
+		return (push_s(dest, ori));
 	}
-	while (a->first->index != node)
-		reverse_rotate_a(a, b);
-	return (push_b(a, b));
+	while (dest->first->index != node)
+		reverse_rotate_s(dest, ori);
+	return (push_s(dest, ori));
 }

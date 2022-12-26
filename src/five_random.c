@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:21:05 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 20:47:02 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:14:28 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,6 @@ void	three_random(t_stack *a, t_stack *b)
 	if (a->last->val < a->first->val && a->first->val < a->last->back->val)
 		return (reverse_rotate_a(a, b));
 }
-//1- Comprobamos si el stack se halla semiordenado o a varias iteraciones de un movimiento de ordenarse
-//2- Buscamos la manera más rápida de ordenar el stack, que es pusheando los dos más pequeños o el más pequeño y el más grande.
-//3- Realizamos las aciones indicadas por otra función que dictará qué elementos pushear
-//4- Una vez pusheados, llamamos a la función three_random para ordenar esa pareja y consecuentemente traemos a los dos de stack b
 
 void	five_random(t_stack *a, t_stack *b)
 {
