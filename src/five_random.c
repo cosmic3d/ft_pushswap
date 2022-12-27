@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:21:05 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 15:57:55 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:23:09 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,20 @@ void	five_random(t_stack *a, t_stack *b)
 		return ;
 	if (a->len == 5)
 	{
-		choose_pushes(a, b, smaller_1(a, -1), bigger_1(a));
+		choose_pushes(a, b, smaller_1(a, -1), bigger_1(a, -1));
 		if (!ft_is_ordered(a))
 			three_random(a, b);
 		push_s(a, b);
-		if (bigger_1(a) == a->first->index)
+		if (bigger_1(a, -1) == a->first->index)
 			rotate_s(a, b);
 		push_s(a, b);
-		if (bigger_1(a) == a->first->index)
+		if (bigger_1(a, -1) == a->first->index)
 			rotate_s(a, b);
 		if (a->first->val > a->first->next->val)
 			swap_s(a, b);
 		return ;
 	}
-	how_push(b, a, closer_1(smaller_1(a, -1), bigger_1(a), a->len, 0), -1);
+	how_push(b, a, closer_1(smaller_1(a, -1), bigger_1(a, -1), a->len, 0), -1);
 	if (!ft_is_ordered(a))
 		three_random(a, b);
 	push_s(a, b);

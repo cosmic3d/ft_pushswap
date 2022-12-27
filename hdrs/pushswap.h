@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 15:43:15 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:23:35 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	algorithm(t_stack *a, t_stack *b);
 //|--------------LOCATE NODES--------------|
 t_node	*get_node(t_stack *s, int index);
 int		smaller_1(t_stack *stack, int exclude);
-int		bigger_1(t_stack *stack);
+int		bigger_1(t_stack *stack, int exclude);
 int		closer_1(int one, int two, int len, int inverted);
 int		next_1(t_stack *s, int index);
 //|--------------SIMULATION FUNCS--------------|
@@ -113,4 +113,5 @@ void	five_random(t_stack *a, t_stack *b);
 //|--------------ONE HUNDRED RANDOM NUMBERS ALGORITHM--------------|
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size);
 int		get_num_in_pos(t_stack *s, int pos);
+void	back_to_a(t_stack *a, t_stack *b, int b1, int b2);
 #endif

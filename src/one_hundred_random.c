@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 16:25:37 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 20:10:24 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 {
-	int	tmp;
+	int	t;
 
+	if (few_swap(a, b) || few_rotate(a, b, get_node(a, smaller_1(a, -1))))
+		return ;
 	while (a->len > 0)
 	{
-		tmp = v(a, get_num_in_pos(a, chunk_size - 1));
-		while (a->len > 0 && v(a, smaller_1(a, -1)) <= tmp)
+		t = v(a, get_num_in_pos(a, chunk_size - 1));
+		while (a->len > 0 && v(a, smaller_1(a, -1)) <= t)
 		{
-			if (a->first->val <= tmp)
+			if (a->first->val <= t)
 			{
 				push_s(b, a);
 				reindex(a);
@@ -31,11 +33,12 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 			reindex(a);
 		}
 	}
-	while (b->len > 0)
+	while (b->len > 1)
 	{
 		reindex(b);
-		how_push(a, b, bigger_1(b), -1);
+		back_to_a(a, b, bigger_1(b, -1), bigger_1(b, bigger_1(b, -1)));
 	}
+	push_s(a, b);
 }
 
 int	get_num_in_pos(t_stack *s, int pos)
@@ -45,7 +48,20 @@ int	get_num_in_pos(t_stack *s, int pos)
 
 	i = 0;
 	index = smaller_1(s, -1);
-	while (i++ < pos && index != bigger_1(s))
+	while (i++ < pos && index != bigger_1(s, -1))
 		index = next_1(s, index);
 	return (index);
+}
+
+void	back_to_a(t_stack *a, t_stack *b, int b1, int b2)
+{
+	int	t;
+	int	t2;
+
+	t = closer_1(b1, b2, b->len, 0);
+	t2 = closer_1(b1, b2, b->len, 1);
+	how_push(a, b, t, -1);
+	how_push(a, b, t2, -1);
+	few_swap(a, b);
+	return ;
 }

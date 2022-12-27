@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 21:15:39 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/26 18:24:34 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:20:12 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_node	*get_node(t_stack *s, int index)
 	t_node	*tmp;
 
 	if (index >= s->len)
-		return (get_node(s, bigger_1(s)));
+		return (get_node(s, bigger_1(s, -1)));
 	tmp = s->first;
 	while (tmp)
 	{
@@ -51,7 +51,7 @@ int	smaller_1(t_stack *stack, int exclude)
 	return (smaller->index);
 }
 
-int	bigger_1(t_stack *stack)
+int	bigger_1(t_stack *stack, int exclude)
 {
 	t_node	*bigger;
 	t_node	*tmp;
@@ -60,9 +60,14 @@ int	bigger_1(t_stack *stack)
 		return (-1);
 	tmp = stack->first;
 	bigger = stack->first;
+	if (bigger->index == exclude)
+	{
+		tmp = stack->first->next;
+		bigger = stack->first->next;
+	}
 	while (tmp->next)
 	{
-		if (tmp->next->val > bigger->val)
+		if (tmp->next->val > bigger->val && tmp->next->index != exclude)
 			bigger = tmp->next;
 		tmp = tmp->next;
 	}
@@ -101,8 +106,8 @@ int	next_1(t_stack *s, int index)
 
 	if (get_node(s, index))
 		val = get_node(s, index)->val;
-	if (index >= s->len || val == get_node(s, bigger_1(s))->val)
-		return (bigger_1(s));
+	if (index >= s->len || val == get_node(s, bigger_1(s, -1))->val)
+		return (bigger_1(s, -1));
 	next = -1;
 	tmp = s->first;
 	while (next == -1 && tmp)

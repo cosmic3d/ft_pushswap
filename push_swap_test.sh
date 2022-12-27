@@ -591,7 +591,7 @@ fi
 
 ARG="1 3 2"; 
 N=$(./push_swap $ARG | wc -l)
-if [ $N -lt 4 ]; then
+if [ $N -lt 13 ]; then
 	printf "${GREEN}3.[OK] ${DEF_COLOR}";
 else
 	printf "${RED}3.[KO]${DEF_COLOR}";
@@ -3082,7 +3082,10 @@ fi
 done
 
 ((val--))
+Echo $media
+Echo $val
 media=$(($media/$val))
+Echo $media
 printf "${CYAN}\n\nMax: $alta${DEF_COLOR}\n"
 printf "${CYAN}Min: $baja${DEF_COLOR}\n"
 printf "${CYAN}Average: $media${DEF_COLOR}\n"

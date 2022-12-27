@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:41 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 19:44:30 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:10:50 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	debug_simulation(t_stack *a)
 
 	smaller1 = smaller_1(a, -1);
 	smaller2 = smaller_1(a, smaller1);
-	bigger1 = bigger_1(a);
+	bigger1 = bigger_1(a, -1);
 	ft_printf("smaller1 is: %d\n", smaller1);
 	ft_printf("smaller2 is: %d\n", smaller2);
 	ft_printf("bigger1 is: %d\n", bigger1);
