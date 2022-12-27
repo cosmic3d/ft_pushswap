@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 20:49:58 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 19:54:59 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:17:25 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	how_many_moves(int index, int len)
 		return (index * -1);
 	return (len - index);
 }
-//Closer 1 y Closer2 son los 2 que nos interesan más cercanos al índice 0. El 1 es el primero más cercano y el 2 el segundo
 
 int	both_moves(int closer1, int closer2, int len)
 {

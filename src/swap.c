@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:43:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/26 19:08:32 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:29:21 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ void	choose_swap(t_stack *a, t_stack *b)
 {
 	if (b->len == 2 && b->first->val < b->first->next->val)
 		return (swapswap(a, b));
-	return (swap_a(a, b));
+	return (swap_s(a, b));
 }

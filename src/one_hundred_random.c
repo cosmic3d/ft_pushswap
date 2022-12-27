@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/26 18:55:06 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:25:37 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 		{
 			if (a->first->val <= tmp)
 			{
-				push_b(a, b);
+				push_s(b, a);
 				reindex(a);
 				continue ;
 			}
-			rotate_a(a, b);
+			rotate_s(a, b);
 			reindex(a);
 		}
 	}

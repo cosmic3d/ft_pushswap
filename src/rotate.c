@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:03:26 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/23 19:54:35 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:18:56 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,17 @@ void	rotate(t_stack *stack)
 	return ;
 }
 
-void	rotate_a(t_stack *a, t_stack *b)
+void	rotate_s(t_stack *dest, t_stack *ori)
 {
-	rotate(a);
-	if (ft_printf("%s", RA) == -1)
-		ft_error(a, b);
-	return ;
-}
-
-void	rotate_b(t_stack *a, t_stack *b)
-{
-	rotate(b);
+	rotate(dest);
+	if (dest->id == 'a')
+	{
+		if (ft_printf("%s", RA) == -1)
+			ft_error(dest, ori);
+		return ;
+	}
 	if (ft_printf("%s", RB) == -1)
-		ft_error(a, b);
+		ft_error(dest, ori);
 	return ;
 }
 

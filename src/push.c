@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/26 19:03:50 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:11:12 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,21 @@ void	push_s(t_stack *dest, t_stack *ori)
 
 void	how_push(t_stack *dest, t_stack *ori, int node, int brother)
 {
+	
 	if (!node)
 		return (push_s(dest, ori));
 	if (node == 1 && dest->len - 1 == brother)
 	{
-		swap_a(dest, ori);
+		swap_s(ori, dest);
 		return (push_s(dest, ori));
 	}
 	if (node <= dest->len / 2)
 	{
-		while (dest->first->index != node)
-			rotate_s(dest, ori);
+		while (ori->first->index != node)
+			rotate_s(ori, dest);
 		return (push_s(dest, ori));
 	}
-	while (dest->first->index != node)
-		reverse_rotate_s(dest, ori);
+	while (ori->first->index != node)
+		reverse_rotate_s(ori, dest);
 	return (push_s(dest, ori));
 }

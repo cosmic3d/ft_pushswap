@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/26 18:21:54 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:43:15 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,17 @@ int		ft_stack_values(t_stack *stack, int len, char id);
 t_node	*ft_newnode(int nbr, int ind);
 //|--------------MOVEMENT FUNCS--------------|
 void	swap(t_stack *stack);
-void	swap_a(t_stack *a, t_stack *b);
-void	swap_b(t_stack *a, t_stack *b);
+void	swap_s(t_stack *dest, t_stack *ori);
 void	swapswap(t_stack *a, t_stack *b);
 void	choose_swap(t_stack *a, t_stack *b);
 void	push(t_stack *dest, t_stack *ori);
-void	push_a(t_stack *a, t_stack *b);
-void	push_b(t_stack *a, t_stack *b);
-void	how_push(t_stack *a, t_stack *b, int node, int brother);
+void	push_s(t_stack *dest, t_stack *ori);
+void	how_push(t_stack *dest, t_stack *ori, int node, int brother);
 void	rotate(t_stack *stack);
-void	rotate_a(t_stack *a, t_stack *b);
-void	rotate_b(t_stack *a, t_stack *b);
+void	rotate_s(t_stack *dest, t_stack *ori);
 void	rotaterotate(t_stack *a, t_stack *b);
 void	reverse_rotate(t_stack *stack);
-void	reverse_rotate_a(t_stack *a, t_stack *b);
-void	reverse_rotate_b(t_stack *a, t_stack *b);
+void	reverse_rotate_s(t_stack *dest, t_stack *ori);
 void	rrr(t_stack *a, t_stack *b);
 //|--------------UTILS FUNCS--------------|
 void	empty_stack(t_stack *stack);
