@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 22:19:41 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:24:48 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,10 @@ void	algorithm(t_stack *a, t_stack *b);
 t_node	*get_node(t_stack *s, int index);
 int		smaller_1(t_stack *stack, int exclude);
 int		bigger_1(t_stack *stack, int exclude);
-int		closer_1(int one, int two, int len, int inverted);
+t_node	*closer_1(int one, int two, t_stack *s, int inverted);
+int		get_num_in_pos(t_stack *s, int pos);
 int		next_1(t_stack *s, int index);
+int		prev_1(t_stack *s, int index);
 //|--------------SIMULATION FUNCS--------------|
 int		how_many_moves(int index, int len);
 int		both_moves(int closer1, int closer2, int len);
@@ -109,10 +111,10 @@ int		v(t_stack *s, int index);
 //|--------------FIVE RANDOM NUMBERS ALGORITHM--------------|
 void	choose_pushes(t_stack *a, t_stack *b, int s1, int b1);
 void	three_random(t_stack *a, t_stack *b);
-void	five_random(t_stack *a, t_stack *b);
+void	five_random(t_stack *a, t_stack *b, int closer_one);
 //|--------------ONE HUNDRED RANDOM NUMBERS ALGORITHM--------------|
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size);
-int		get_num_in_pos(t_stack *s, int pos);
+void	send_to_b(t_stack *a, t_stack *b, int t);
 void	back_to_a(t_stack *a, t_stack *b, int b1, int b2);
 void	sort_top(t_stack *a, t_stack *b, int s1);
 void	sort_top_2(t_stack *a, t_stack *b, int s1);

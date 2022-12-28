@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 22:19:21 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:24:31 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,53 @@
 
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 {
-	int	t;
-
 	if (few_swap(a, b) || few_rotate(a, b, get_node(a, smaller_1(a, -1))))
 		return ;
 	while (a->len > 0)
-	{
-		t = v(a, get_num_in_pos(a, chunk_size - 1));
-		while (a->len > 0 && v(a, smaller_1(a, -1)) <= t)
-		{
-			if (a->first->val <= t)
-			{
-				push_s(b, a);
-				reindex(a);
-				continue ;
-			}
-			rotate_s(a, b);
-			reindex(a);
-		}
-	}
-	while (b->len > 1)
+		send_to_b(a, b, v(a, get_num_in_pos(a, chunk_size - 1)));
+	while (b->len > 2)
 	{
 		reindex(b);
 		back_to_a(a, b, bigger_1(b, -1), bigger_1(b, bigger_1(b, -1)));
 	}
 	push_s(a, b);
+	push_s(a, b);
+	if (!ft_is_ordered(a))
+		return (swap_s(a, b));
 }
 
-int	get_num_in_pos(t_stack *s, int pos)
+void	send_to_b(t_stack *a, t_stack *b, int t)
 {
-	int	i;
-	int	index;
-
-	i = 0;
-	index = smaller_1(s, -1);
-	while (i++ < pos && index != bigger_1(s, -1))
-		index = next_1(s, index);
-	return (index);
+	while (a->len > 0 && v(a, smaller_1(a, -1)) <= t)
+	{
+		if (a->first->val <= t)
+		{
+			push_s(b, a);
+			reindex(a);
+			continue ;
+		}
+		rotate_s(a, b);
+		reindex(a);
+	}
 }
 
 void	back_to_a(t_stack *a, t_stack *b, int b1, int b2)
 {
-	int	t;
-	int	t2;
-	int	t3;
+	t_node	*t;
+	t_node	*t2;
+	t_node	*t3;
+	int		tmp;
 
-	t2 = closer_1(b1, b2, b->len, 0);
-	t3 = closer_1(b1, b2, b->len, 1);
-	t = closer_1(t2, next_1(a, b2), b->len, 0);
-	t2 = closer_1(t2, next_1(a, b2), b->len, 1);
-	how_push(a, b, t, -1);
-	how_push(a, b, t2, -1);
-	how_push(a, b, t3, -1);
-	reindex(a);
+	t2 = closer_1(b1, b2, b, 0);
+	t3 = closer_1(b1, b2, b, 1);
+	t = closer_1(t2->index, prev_1(b, b2), b, 0);
+	t2 = closer_1(t2->index, prev_1(b, b2), b, 1);
+	tmp = t2->index;
+	t2 = closer_1(t2->index, t3->index, b, 0);
+	t3 = closer_1(tmp, t3->index, b, 1);
+	how_push(a, b, t->index, -1);
+	how_push(a, b, t2->index, -1);
+	how_push(a, b, t3->index, -1);
 	sort_top(a, b, smaller_1(a, -1));
 	return ;
 }
@@ -75,6 +69,8 @@ void	sort_top(t_stack *a, t_stack *b, int s1)
 {
 	t_node	*s2;
 
+	if (ft_is_ordered(a))
+		return ;
 	s2 = get_node(a, next_1(a, s1));
 	if (s1 == 0)
 	{
@@ -90,7 +86,7 @@ void	sort_top(t_stack *a, t_stack *b, int s1)
 		push_s(a, b);
 		return (reverse_rotate_s(a, b));
 	}
-	else
+	else if (s1 == 1 && s2->index == 0)
 		return (swap_s(a, b));
 	return (sort_top_2(a, b, s1));
 }

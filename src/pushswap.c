@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 20:11:29 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:06:10 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	algorithm(t_stack *a, t_stack *b)
 {
+	t_node	*closer_one;
+
+	closer_one = closer_1(smaller_1(a, -1), bigger_1(a, -1), a, 0);
 	if (a->len <= 3)
 		return (three_random(a, b));
 	else if (a->len <= 5)
-		return (five_random(a, b));
+		return (five_random(a, b, closer_one->index));
 	else if (a->len <= 100)
 		return (one_hundred_random(a, b, 20));
 	return (one_hundred_random(a, b, 50));

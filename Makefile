@@ -43,7 +43,7 @@ INCLUDE		= -I $(LIBS_HDRS)
 SRCS		+= pushswap.c check_input.c init_stacks.c \
 swap.c push.c utils.c rotate.c reverse_rotate.c debug.c \
 five_random.c one_hundred_random.c simulation.c \
-locate_nodes.c math.c cases.c
+locate_nodes.c math.c cases.c locate_prevnext.c
 
 # -=-=-=-=-	OBJECTS/DEPENDENCIES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 

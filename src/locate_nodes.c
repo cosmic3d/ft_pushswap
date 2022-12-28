@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 21:15:39 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/27 19:20:12 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:15:08 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,54 +74,38 @@ int	bigger_1(t_stack *stack, int exclude)
 	return (bigger->index);
 }
 
-int	closer_1(int one, int two, int len, int inverted)
+t_node	*closer_1(int one, int two, t_stack *s, int inverted)
 {
 	int	tmp_one;
 	int	tmp_two;
 
-	tmp_one = ft_abs(how_many_moves(one, len));
-	tmp_two = ft_abs(how_many_moves(two, len));
+	tmp_one = ft_abs(how_many_moves(one, s->len));
+	tmp_two = ft_abs(how_many_moves(two, s->len));
 	if (inverted)
 	{
-		if (closer_1(one, two, len, 0) == one)
-			return (two);
-		return (one);
+		if (closer_1(one, two, s, 0)->index == one)
+			return (get_node(s, two));
+		return (get_node(s, one));
 	}
 	if (tmp_one == tmp_two)
 	{
-		if (one <= len / 2)
-			return (one);
-		return (two);
+		if (one <= s->len / 2)
+			return (get_node(s, one));
+		return (get_node(s, two));
 	}
 	if (tmp_one < tmp_two)
-		return (one);
-	return (two);
+		return (get_node(s, one));
+	return (get_node(s, two));
 }
 
-int	next_1(t_stack *s, int index)
+int	get_num_in_pos(t_stack *s, int pos)
 {
-	int		val;
-	int		next;
-	t_node	*tmp;
+	int	i;
+	int	index;
 
-	if (get_node(s, index))
-		val = get_node(s, index)->val;
-	if (index >= s->len || val == get_node(s, bigger_1(s, -1))->val)
-		return (bigger_1(s, -1));
-	next = -1;
-	tmp = s->first;
-	while (next == -1 && tmp)
-	{
-		if (tmp->val > val)
-			next = tmp->index;
-		tmp = tmp->next;
-	}
-	tmp = s->first;
-	while (tmp)
-	{
-		if (tmp->val > val && tmp->val < get_node(s, next)->val)
-			next = tmp->index;
-		tmp = tmp->next;
-	}
-	return (next);
+	i = 0;
+	index = smaller_1(s, -1);
+	while (i++ < pos && index != bigger_1(s, -1))
+		index = next_1(s, index);
+	return (index);
 }
