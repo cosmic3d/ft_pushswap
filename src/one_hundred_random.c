@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 20:24:31 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:00:50 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 	if (few_swap(a, b) || few_rotate(a, b, get_node(a, smaller_1(a, -1))))
 		return ;
 	while (a->len > 0)
-		send_to_b(a, b, v(a, get_num_in_pos(a, chunk_size - 1)));
+		send_to_b(a, b, get_num_in_pos(a, chunk_size - 1));
+	// debug_stack(b);
+	// debug_stack(a);
+	// exit(1);
 	while (b->len > 2)
 	{
 		reindex(b);
@@ -29,13 +32,22 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 		return (swap_s(a, b));
 }
 
-void	send_to_b(t_stack *a, t_stack *b, int t)
+void	send_to_b(t_stack *a, t_stack *b, t_node *t)
 {
-	while (a->len > 0 && v(a, smaller_1(a, -1)) <= t)
+	while (a->len > 0 && v(a, smaller_1(a, -1)) <= t->val)
 	{
-		if (a->first->val <= t)
+		if (a->first->val <= t->val)
 		{
 			push_s(b, a);
+			// debug_stack(a);
+			// debug_stack(b);
+			// ft_printf("First final index of b is: %d\n", b->first->final_index);
+			// ft_printf("T val is: %d\n", t->val);
+			// ft_printf("T final index is: %d\n", t->final_index);
+			// ft_printf("T final index / 2 is: %d\n", t->final_index / 2);
+			if (b->first->final_index < t->final_index / 2 && b->len > 2)
+				rotate_s(b, a);
+			// exit(1);
 			reindex(a);
 			continue ;
 		}

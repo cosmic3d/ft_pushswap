@@ -3082,10 +3082,7 @@ fi
 done
 
 ((val--))
-Echo $media
-Echo $val
 media=$(($media/$val))
-Echo $media
 printf "${CYAN}\n\nMax: $alta${DEF_COLOR}\n"
 printf "${CYAN}Min: $baja${DEF_COLOR}\n"
 printf "${CYAN}Average: $media${DEF_COLOR}\n"

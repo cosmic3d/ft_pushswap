@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:41 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 18:00:53 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:14:48 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	debug_stack(t_stack *stack)
 	ft_printf("Printing stack %c:\n\n", stack->id);
 	while (tmp != NULL)
 	{
-		ft_printf("\nValue of %d is: \"%d\"\n\n", tmp->index, tmp->val);
+		ft_printf("\nValue of %d | %d is: \"%d\"\n\n", tmp->index, tmp->final_index, tmp->val);
 		debug_node(tmp);
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 20:06:10 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:06:50 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 	ft_init_b(&b);
 	if (ft_is_ordered(&a))
 		exit(1);
+	finalindexation(&a);
 	algorithm(&a, &b);
 	// debug_stack(&a);
 	// debug_stack(&b);

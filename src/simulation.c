@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 20:49:58 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 17:46:23 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:30:19 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,19 @@ void	reindex(t_stack *s)
 		tmp = tmp->next;
 	}
 	return ;
+}
+
+void	finalindexation(t_stack *s)
+{
+	int		count;
+	t_node	*tmp;
+
+	count = 0;
+	tmp = get_node(s, smaller_1(s, -1));
+	while (tmp->index != bigger_1(s, -1))
+	{
+		tmp->final_index = count++;
+		tmp = get_node(s, next_1(s, tmp->index));
+	}
+	tmp->final_index = count;
 }

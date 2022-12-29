@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 20:24:48 by jenavarr         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:30:04 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_node
 {
 	int				val;
 	int				index;
+	int				final_index;
 	struct s_node	*next;
 	struct s_node	*back;
 }t_node;
@@ -94,13 +95,14 @@ t_node	*get_node(t_stack *s, int index);
 int		smaller_1(t_stack *stack, int exclude);
 int		bigger_1(t_stack *stack, int exclude);
 t_node	*closer_1(int one, int two, t_stack *s, int inverted);
-int		get_num_in_pos(t_stack *s, int pos);
+t_node	*get_num_in_pos(t_stack *s, int pos);
 int		next_1(t_stack *s, int index);
 int		prev_1(t_stack *s, int index);
 //|--------------SIMULATION FUNCS--------------|
 int		how_many_moves(int index, int len);
 int		both_moves(int closer1, int closer2, int len);
 void	reindex(t_stack *s);
+void	finalindexation(t_stack *s);
 //|--------------CASES FUNCS--------------|
 int		few_swap(t_stack *a, t_stack *b);
 int		few_rotate(t_stack *a, t_stack *b, t_node *smaller);
@@ -114,7 +116,7 @@ void	three_random(t_stack *a, t_stack *b);
 void	five_random(t_stack *a, t_stack *b, int closer_one);
 //|--------------ONE HUNDRED RANDOM NUMBERS ALGORITHM--------------|
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size);
-void	send_to_b(t_stack *a, t_stack *b, int t);
+void	send_to_b(t_stack *a, t_stack *b, t_node *t);
 void	back_to_a(t_stack *a, t_stack *b, int b1, int b2);
 void	sort_top(t_stack *a, t_stack *b, int s1);
 void	sort_top_2(t_stack *a, t_stack *b, int s1);

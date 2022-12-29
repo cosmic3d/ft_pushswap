@@ -37,10 +37,10 @@ class PsGui:
         self.speed = 0
         dirname = os.path.dirname(os.path.abspath(__file__))
         PUSHS_PATH = os.path.join(dirname, RELATIVE_PATH)
-        print(PUSHS_PATH)
         self.pile_a = [int(num) for num in sys.argv[1:]]
         self.first_pile = self.pile_a[:]
         self.pile_b = []
+        print([PUSHS_PATH] + sys.argv[1:])
         self.cmds = subprocess.check_output([PUSHS_PATH] + sys.argv[1:], stderr=subprocess.STDOUT,
                                             timeout=12).splitlines()
         self.prespeed = 1 / len(self.pile_a)
