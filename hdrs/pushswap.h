@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/29 16:30:04 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:03:20 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int		ft_is_ordered(t_stack *stack);
 void	debug_stack(t_stack *stack);
 void	debug_simulation(t_stack *a);
 void	debug_node(t_node *n);
+int		debug_error(t_stack *stack, int node);
 //|--------------ALGORITHM--------------|
 void	algorithm(t_stack *a, t_stack *b);
 //|--------------LOCATE NODES--------------|
@@ -118,6 +119,8 @@ void	five_random(t_stack *a, t_stack *b, int closer_one);
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size);
 void	send_to_b(t_stack *a, t_stack *b, t_node *t);
 void	back_to_a(t_stack *a, t_stack *b, int b1, int b2);
-void	sort_top(t_stack *a, t_stack *b, int s1);
-void	sort_top_2(t_stack *a, t_stack *b, int s1);
+void	smallest_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
+void	smallest2_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
+// void	sort_top(t_stack *a, t_stack *b, int s1);
+// void	sort_top_2(t_stack *a, t_stack *b, int s1);
 #endif

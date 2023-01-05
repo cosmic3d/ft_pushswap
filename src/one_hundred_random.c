@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/29 18:00:50 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:39:05 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 	{
 		reindex(b);
 		back_to_a(a, b, bigger_1(b, -1), bigger_1(b, bigger_1(b, -1)));
+		// if (a->first->val == 35)
+		// {
+		// 	debug_stack(a);
+		// 	//debug_stack(b);
+		// 	if (ft_is_ordered(a))
+		// 		ft_printf("Stack A is ordered!\n");
+		// 	else
+		// 		ft_printf("Stack A is not ordered :(!\n");
+		// 	exit(1);
+		// }
+		// if (a->first->val == 35)
+		// 	exit(1);
 	}
 	push_s(a, b);
 	push_s(a, b);
@@ -61,62 +73,93 @@ void	back_to_a(t_stack *a, t_stack *b, int b1, int b2)
 	t_node	*t;
 	t_node	*t2;
 	t_node	*t3;
-	int		tmp;
 
 	t2 = closer_1(b1, b2, b, 0);
 	t3 = closer_1(b1, b2, b, 1);
 	t = closer_1(t2->index, prev_1(b, b2), b, 0);
-	t2 = closer_1(t2->index, prev_1(b, b2), b, 1);
-	tmp = t2->index;
-	t2 = closer_1(t2->index, t3->index, b, 0);
-	t3 = closer_1(tmp, t3->index, b, 1);
 	how_push(a, b, t->index, -1);
+	t2 = closer_1(bigger_1(b, -1), prev_1(b, bigger_1(b, -1)), b, 0);
+	t3 = closer_1(bigger_1(b, -1), prev_1(b, bigger_1(b, -1)), b, 1);
+	if (t->final_index < t2->final_index && t->final_index < t3->final_index)
+		return (smallest_first(a, b, t2, t3));
+	smallest2_first(a, b, t2, t3);
 	how_push(a, b, t2->index, -1);
 	how_push(a, b, t3->index, -1);
-	sort_top(a, b, smaller_1(a, -1));
+	if (!ft_is_ordered(a))
+		swap_s(a, b);
+	//sort_top(a, b, smaller_1(a, -1));
 	return ;
 }
 
-void	sort_top(t_stack *a, t_stack *b, int s1)
+void	smallest2_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3)
 {
-	t_node	*s2;
+	int	n;
 
-	if (ft_is_ordered(a))
+	n = a->first->final_index;
+	if (n > t2->final_index && n > t3->final_index)
 		return ;
-	s2 = get_node(a, next_1(a, s1));
-	if (s1 == 0)
+	how_push(a, b, t2->index, -1);
+	if (t2->final_index < t2->next->final_index)
 	{
 		rotate_s(a, b);
+		how_push(a, b, t3->index, -1);
 		swap_s(a, b);
 		return (reverse_rotate_s(a, b));
 	}
-	if (s1 == 2 && s2->index == 0)
-	{
-		push_s(b, a);
-		swap_s(a, b);
-		rotate_s(a, b);
-		push_s(a, b);
-		return (reverse_rotate_s(a, b));
-	}
-	else if (s1 == 1 && s2->index == 0)
-		return (swap_s(a, b));
-	return (sort_top_2(a, b, s1));
+	swap_s(a, b);
+	return (how_push(a, b, t3->index, -1));
 }
 
-void	sort_top_2(t_stack *a, t_stack *b, int s1)
+void	smallest_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3)
 {
-	if (s1 == 1)
-	{
-		swap_s(a, b);
-		rotate_s(a, b);
-		swap_s(a, b);
-		return (reverse_rotate_s(a, b));
-	}
 	rotate_s(a, b);
-	rotate_s(a, b);
-	push_s(b, a);
+	how_push(a, b, t2->index, -1);
+	how_push(a, b, t3->index, -1);
+	if (t2->final_index < t3->final_index)
+		swap_s(a, b);
 	reverse_rotate_s(a, b);
-	reverse_rotate_s(a, b);
-	swap_s(a, b);
-	return (push_s(a, b));
 }
+
+// void	sort_top(t_stack *a, t_stack *b, int s1)
+// {
+// 	t_node	*s2;
+
+// 	if (ft_is_ordered(a))
+// 		return ;
+// 	s2 = get_node(a, next_1(a, s1));
+// 	if (s1 == 0)
+// 	{
+// 		rotate_s(a, b);
+// 		swap_s(a, b);
+// 		return (reverse_rotate_s(a, b));
+// 	}
+// 	if (s1 == 2 && s2->index == 0)
+// 	{
+// 		push_s(b, a);
+// 		swap_s(a, b);
+// 		rotate_s(a, b);
+// 		push_s(a, b);
+// 		return (reverse_rotate_s(a, b));
+// 	}
+// 	else if (s1 == 1 && s2->index == 0)
+// 		return (swap_s(a, b));
+// 	return (sort_top_2(a, b, s1));
+// }
+
+// void	sort_top_2(t_stack *a, t_stack *b, int s1)
+// {
+// 	if (s1 == 1)
+// 	{
+// 		swap_s(a, b);
+// 		rotate_s(a, b);
+// 		swap_s(a, b);
+// 		return (reverse_rotate_s(a, b));
+// 	}
+// 	rotate_s(a, b);
+// 	rotate_s(a, b);
+// 	push_s(b, a);
+// 	reverse_rotate_s(a, b);
+// 	reverse_rotate_s(a, b);
+// 	swap_s(a, b);
+// 	return (push_s(a, b));
+// }

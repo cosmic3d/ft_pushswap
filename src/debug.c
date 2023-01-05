@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:41 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/29 16:14:48 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:05:44 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,18 @@ void	debug_node(t_node *n)
 		ft_printf("\tNext is %d", n->next->val);
 	else
 		ft_printf("\tNext is NULL");
+}
+
+int	debug_error(t_stack *stack, int node)
+{
+	t_node	*tmp;
+
+	tmp = stack->first;
+	while (tmp)
+	{
+		if (tmp->index == node)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

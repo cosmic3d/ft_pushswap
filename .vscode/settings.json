@@ -3,6 +3,7 @@
         "ft_printf.h": "c",
         "__node_handle": "c",
         "chrono": "c",
-        "utility": "c"
+        "utility": "c",
+        "algorithm": "c"
     }
 }

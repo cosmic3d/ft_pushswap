@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 19:00:06 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 19:11:36 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:06:20 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ void	push_s(t_stack *dest, t_stack *ori)
 
 void	how_push(t_stack *dest, t_stack *ori, int node, int brother)
 {
+	if (debug_error(ori, node))
+	{
+		ft_printf("An error ocurred\nThere isnt any node with %d as index\n", node);
+		debug_stack(dest);
+		debug_stack(ori);
+		exit(1);
+	}
 	if (node == 1 && ori->len - 1 == brother)
 	{
 		swap_s(ori, dest);
@@ -64,7 +71,12 @@ void	how_push(t_stack *dest, t_stack *ori, int node, int brother)
 		return (reindex(ori));
 	}
 	while (ori->first->index != node)
+	{
 		reverse_rotate_s(ori, dest);
+		// ft_printf("\n\nNode value is: %d\n\n", node);
+		// debug_stack(ori);
+		// debug_stack(dest);
+	}
 	push_s(dest, ori);
 	reindex(dest);
 	return (reindex(ori));
