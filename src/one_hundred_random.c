@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/01/05 22:39:05 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:32:23 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,13 @@ void	back_to_a(t_stack *a, t_stack *b, int b1, int b2)
 	how_push(a, b, t3->index, -1);
 	if (!ft_is_ordered(a))
 		swap_s(a, b);
+	if (!ft_is_ordered(a))
+	{
+		debug_stack(b);
+		debug_stack(a);
+		ft_printf("\nThe attempt to sort the three biggest numbers has failed\n");
+		exit(1);
+	}
 	//sort_top(a, b, smaller_1(a, -1));
 	return ;
 }
@@ -107,6 +114,9 @@ void	smallest2_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3)
 		return (reverse_rotate_s(a, b));
 	}
 	swap_s(a, b);
+	// write(1, "STACK NOW IS:\n", 16);
+	// debug_stack(a);
+	// debug_stack(b);
 	return (how_push(a, b, t3->index, -1));
 }
 

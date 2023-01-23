@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/01/05 21:52:51 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:29:32 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	// 	ft_printf("Stack A is ordered!\n");
 	// else
 	// 	ft_printf("Stack A is not ordered :(!\n");
-	exit(1);
+	// exit(1);
 }
 
 // python3 pyviz.py `ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
