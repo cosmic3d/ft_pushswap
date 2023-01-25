@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 21:15:39 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/29 16:32:03 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/25 21:54:53 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,14 @@ t_node	*closer_1(int one, int two, t_stack *s, int inverted)
 
 t_node	*get_num_in_pos(t_stack *s, int pos)
 {
-	int	i;
-	int	index;
+	t_node	*tmp;
 
-	i = 0;
-	index = smaller_1(s, -1);
-	while (i++ < pos && index != bigger_1(s, -1))
-		index = next_1(s, index);
-	return (get_node(s, index));
+	tmp = s->first;
+	while (tmp)
+	{
+		if (tmp->final_index == pos)
+			return (get_node(s, tmp->index));
+		tmp = tmp->next;
+	}
+	return (get_node(s, bigger_1(s, -1)));
 }

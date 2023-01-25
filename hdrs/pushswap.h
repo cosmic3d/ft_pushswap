@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/01/05 22:03:20 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/25 21:57:54 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ t_node	*closer_1(int one, int two, t_stack *s, int inverted);
 t_node	*get_num_in_pos(t_stack *s, int pos);
 int		next_1(t_stack *s, int index);
 int		prev_1(t_stack *s, int index);
+t_node	*closers_1(t_stack *s, t_node *biggest);
 //|--------------SIMULATION FUNCS--------------|
 int		how_many_moves(int index, int len);
 int		both_moves(int closer1, int closer2, int len);
@@ -119,8 +120,8 @@ void	five_random(t_stack *a, t_stack *b, int closer_one);
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size);
 void	send_to_b(t_stack *a, t_stack *b, t_node *t);
 void	back_to_a(t_stack *a, t_stack *b, int b1, int b2);
-void	smallest_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
-void	smallest2_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
-// void	sort_top(t_stack *a, t_stack *b, int s1);
-// void	sort_top_2(t_stack *a, t_stack *b, int s1);
+// void	smallest_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
+// void	smallest2_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
+void	sort_top(t_stack *a, t_stack *b, int s1);
+void	sort_top_2(t_stack *a, t_stack *b, int s1);
 #endif

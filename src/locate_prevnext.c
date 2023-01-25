@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:58:55 by jenavarr          #+#    #+#             */
-/*   Updated: 2022/12/28 17:06:22 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/01/25 21:54:51 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,20 @@ int	prev_1(t_stack *s, int index)
 		tmp = tmp->next;
 	}
 	return (next);
+}
+
+t_node	*closers_1(t_stack *s, t_node *biggest)
+{
+	t_node	*b2;
+	t_node	*b3;
+	t_node	*c1;
+
+	c1 = biggest;
+	b2 = get_num_in_pos(s, biggest->final_index - 1);
+	b3 = get_num_in_pos(s, biggest->final_index - 2);
+	if (how_many_moves(c1->index, s->len) > how_many_moves(b2->index, s->len))
+		c1 = b2;
+	if (how_many_moves(c1->index, s->len) > how_many_moves(b3->index, s->len))
+		c1 = b3;
+	return (c1);
 }
