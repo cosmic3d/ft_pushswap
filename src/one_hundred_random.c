@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:08:03 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/01/25 22:15:59 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:14:58 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 		return ;
 	while (a->len > 0)
 	{
-		send_to_b(a, b, get_num_in_pos(a, (chunk_size * i) - 1));
+		send_to_b(a, b, get_num_in_pos(a, (chunk_size * i) - 1), chunk_size);
 		i++;
 	}
 	// debug_stack(b);
@@ -38,19 +38,25 @@ void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size)
 		return (swap_s(a, b));
 }
 
-void	send_to_b(t_stack *a, t_stack *b, t_node *t)
+void	send_to_b(t_stack *a, t_stack *b, t_node *t, int csize)
 {
 	while (a->len > 0 && v(a, smaller_1(a, -1)) <= t->val)
 	{
-		if (a->first->val <= t->val)
+		if (a->first->final_index <= t->final_index)
 		{
 			push_s(b, a);
-			if (b->first->final_index < t->final_index / 2 && b->len > 2)
-				rotate_s(b, a);
+			if (b->first->final_index < t->final_index - csize / 2 && b->len > 2)
+			{
+				if (a->first && a->first->final_index <= t->final_index)
+					rotate_s(b, a);
+				else
+					rotaterotate(a, b);
+			}
 			reindex(a);
 			continue ;
 		}
-		rotate_s(a, b);
+		else
+			rotate_s(a, b);
 		reindex(a);
 	}
 }

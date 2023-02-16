@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 21:01:07 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/01/25 21:57:54 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:03:32 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	three_random(t_stack *a, t_stack *b);
 void	five_random(t_stack *a, t_stack *b, int closer_one);
 //|--------------ONE HUNDRED RANDOM NUMBERS ALGORITHM--------------|
 void	one_hundred_random(t_stack *a, t_stack *b, int chunk_size);
-void	send_to_b(t_stack *a, t_stack *b, t_node *t);
+void	send_to_b(t_stack *a, t_stack *b, t_node *t, int csize);
 void	back_to_a(t_stack *a, t_stack *b, int b1, int b2);
 // void	smallest_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);
 // void	smallest2_first(t_stack *a, t_stack *b, t_node *t2, t_node *t3);

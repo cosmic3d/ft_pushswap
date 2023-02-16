@@ -4,6 +4,8 @@
         "__node_handle": "c",
         "chrono": "c",
         "utility": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "get_next_line.h": "c",
+        "checker.h": "c"
     }
 }

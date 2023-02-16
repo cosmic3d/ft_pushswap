@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:55:54 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/01/25 22:17:36 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:15:31 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	if (argc < 3)
-		return (ft_error(NULL, NULL));
+	if (argc < 2)
+		exit(1);
 	if (!check_input(argv, argc))
 		return (ft_error(NULL, NULL));
 	if (ft_init_a(&a, argc, argv) == -1)
@@ -41,7 +41,8 @@ int	main(int argc, char **argv)
 	if (ft_is_ordered(&a))
 		exit(1);
 	finalindexation(&a);
-	algorithm(&a, &b);
+	if (a.len != 1)
+		algorithm(&a, &b);
 	// debug_stack(&a);
 	// debug_stack(&b);
 	// if (ft_is_ordered(&a))
