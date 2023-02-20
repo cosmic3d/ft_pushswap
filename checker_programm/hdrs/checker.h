@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 20:23:35 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/02/16 19:32:28 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:32:16 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,11 @@ int		ft_stack_values(t_stack *stack, int len, char id);
 t_node	*ft_newnode(int nbr, int ind);
 //|--------------MOVEMENT FUNCS--------------|
 void	swap(t_stack *stack);
-void	swap_s(t_stack *dest, t_stack *ori);
 void	swapswap(t_stack *a, t_stack *b);
-void	choose_swap(t_stack *a, t_stack *b);
 void	push(t_stack *dest, t_stack *ori);
-void	push_s(t_stack *dest, t_stack *ori);
-void	how_push(t_stack *dest, t_stack *ori, int node, int brother);
 void	rotate(t_stack *stack);
-void	rotate_s(t_stack *dest, t_stack *ori);
 void	rotaterotate(t_stack *a, t_stack *b);
 void	reverse_rotate(t_stack *stack);
-void	reverse_rotate_s(t_stack *dest, t_stack *ori);
 void	rrr(t_stack *a, t_stack *b);
 //|--------------UTILS FUNCS--------------|
 void	empty_stack(t_stack *stack);
@@ -87,4 +81,5 @@ int		ft_error(t_stack *a, t_stack *b);
 int		ft_is_ordered(t_stack *stack);
 //|--------------CHECKER FUNCS--------------|
 void	do_moves(t_stack *a, t_stack *b);
+void	valid_move(char *str, t_stack *a, t_stack *b);
 #endif

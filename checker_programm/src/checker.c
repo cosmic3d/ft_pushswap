@@ -6,7 +6,7 @@
 /*   By: jenavarr <jenavarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:53:25 by jenavarr          #+#    #+#             */
-/*   Updated: 2023/02/16 19:32:20 by jenavarr         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:14:19 by jenavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,16 @@ void	do_moves(t_stack *a, t_stack *b)
 	int	moves;
 
 	moves = 0;
+	str = get_next_line(0);
 	while (str != NULL)
 	{
-		str = get_next_line(0);
-		//if (!valid_move(str))
-		//exit(1);
+		valid_move(str, a, b);
 		free(str);
 		str = NULL;
+		str = get_next_line(0);
 	}
+	if (ft_is_ordered(a) && !b->len)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }

@@ -41,7 +41,8 @@ LIBS_HDRS	+= $(INC_DIR)checker.h
 INCLUDE		= -I $(LIBS_HDRS)
 
 # -=-=-=-=-	SOURCES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-SRCS		+= checker.c check_input.c init_stacks.c utils.c
+SRCS		+= checker.c check_input.c init_stacks.c utils.c \
+checker_utils.c push.c reverse_rotate.c rotate.c swap.c
 
 # -=-=-=-=-	OBJECTS/DEPENDENCIES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
